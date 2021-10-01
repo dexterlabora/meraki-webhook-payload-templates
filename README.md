@@ -208,6 +208,8 @@ A graphical web app to build and test template files.
     
 ## [Postman](https://postman.com/)
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f71ecf06c38e8eb09094?action=collection%2Fimport)
+
 - `Webhooks Management.postman_collection.json`
 
     A postman collection for the related Meraki API operations to manage webhooks is included in this folder.
