@@ -1,1271 +1,10 @@
 {
 	"info": {
 		"_postman_id": "6d88bc9f-8b52-4b26-b134-bd7faaa42c85",
-		"name": "Webhooks Management",
+		"name": "Meraki Webhooks Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Webhooks",
-			"item": [
-				{
-					"name": "httpServers",
-					"item": [
-						{
-							"name": "List the HTTP servers for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"httpServers"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "List the HTTP servers for a network"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"httpServers"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[\n {\n  \"id\": \"1284392014819\",\n  \"name\": \"What's in a name, anyway?\",\n  \"url\": \"https://example.com/path\"\n }\n]"
-								}
-							]
-						},
-						{
-							"name": "Add an HTTP server to a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"payloadTemplate\": {\n        \"payloadTemplateId\": \"<string>\"\n    }\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"httpServers"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Add an HTTP server to a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| A name for easy reference to the HTTP server\nurl| string| The URL of the HTTP server. Once set, cannot be updated.\nsharedSecret| string| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\npayloadTemplate| object| The payload template to use when posting data to the HTTP server.\n"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com\",\n    \"sharedSecret\": \"shhh\"\n}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"httpServers"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"id\": \"1284392014819\",\n \"name\": \"What's in a name, anyway?\",\n \"url\": \"https://example.com/path\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Return an HTTP server for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"httpServers",
-										":httpServerId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "httpServerId",
-											"value": "{{httpServerId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Return an HTTP server for a network"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"httpServers",
-												":httpServerId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "httpServerId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"id\": \"1284392014819\",\n \"name\": \"What's in a name, anyway?\",\n \"url\": \"https://example.com/path\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Update an HTTP server",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"payloadTemplate\": {\n        \"payloadTemplateId\": \"<string>\"\n    }\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"httpServers",
-										":httpServerId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "httpServerId",
-											"value": "{{httpServerId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Update an HTTP server. To change a URL, create a new HTTP server."
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com\",\n    \"sharedSecret\": \"shhh\"\n}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"httpServers",
-												":httpServerId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "httpServerId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"id\": \"1284392014819\",\n \"name\": \"What's in a name, anyway?\",\n \"url\": \"https://example.com/path\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Delete an HTTP server from a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"httpServers",
-										":httpServerId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "httpServerId",
-											"value": "{{httpServerId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Delete an HTTP server from a network"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"httpServers",
-												":httpServerId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "httpServerId"
-												}
-											]
-										}
-									},
-									"status": "No Content",
-									"code": 204,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "payloadTemplates",
-					"item": [
-						{
-							"name": "List the webhook payload templates for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"payloadTemplates"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "List the webhook payload templates for a network"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"payloadTemplates"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[\n {\n  \"payloadTemplateId\": \"wpt_343\",\n  \"type\": \"custom\",\n  \"name\": \"Weeb Hooks\",\n  \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n  \"headers\": {\n   \"Content-Type\": \"application/json\",\n   \"Accept\": \"application/some.url\",\n   \"Authorization\": \"Bearer {{sharedSecret}}\"\n  }\n }\n]"
-								}
-							]
-						},
-						{
-							"name": "Create a webhook payload template for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": \"<string>\",\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"payloadTemplates"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Create a webhook payload template for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the new template\nbody| string| The liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheaders| string| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/webhooks/payloadTemplates` | create\n\n"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"payloadTemplates"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"payloadTemplateId\": \"wpt_343\",\n \"type\": \"custom\",\n \"name\": \"Weeb Hooks\",\n \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n \"headers\": {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/some.url\",\n  \"Authorization\": \"Bearer {{sharedSecret}}\"\n }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get the webhook payload template for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"payloadTemplates",
-										":payloadTemplateId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "payloadTemplateId",
-											"value": "{{payloadTemplateId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Get the webhook payload template for a network"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"payloadTemplates",
-												":payloadTemplateId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "payloadTemplateId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"payloadTemplateId\": \"wpt_343\",\n \"type\": \"custom\",\n \"name\": \"Weeb Hooks\",\n \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n \"headers\": {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/some.url\",\n  \"Authorization\": \"Bearer {{sharedSecret}}\"\n }\n}"
-								}
-							]
-						},
-						{
-							"name": "Destroy a webhook payload template for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"payloadTemplates",
-										":payloadTemplateId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "payloadTemplateId",
-											"value": "{{payloadTemplateId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Destroy a webhook payload template for a network. Does not work for included templates ('wpt_00001', 'wpt_00002' or 'wpt_00003')"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"payloadTemplates",
-												":payloadTemplateId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "payloadTemplateId"
-												}
-											]
-										}
-									},
-									"status": "No Content",
-									"code": 204,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								}
-							]
-						},
-						{
-							"name": "Update a webhook payload template for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": \"<string>\",\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"payloadTemplates",
-										":payloadTemplateId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "payloadTemplateId",
-											"value": "{{payloadTemplateId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Update a webhook payload template for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the template\nbody| string| The liquid template used for the body of the webhook message.\nheaders| string| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}` | update\n\n"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"payloadTemplates",
-												":payloadTemplateId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "payloadTemplateId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"payloadTemplateId\": \"wpt_343\",\n \"type\": \"custom\",\n \"name\": \"Weeb Hooks\",\n \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n \"headers\": {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/some.url\",\n  \"Authorization\": \"Bearer {{sharedSecret}}\"\n }\n}"
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "webhookTests",
-					"item": [
-						{
-							"name": "Send a test webhook for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"\",\n    \"payloadTemplateId\": \"<string>\",\n    \"alertTypeId\": \"power_supply_down\"\n}"
-								},
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"webhookTests"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Send a test webhook for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nurl| string| The URL where the test webhook will be sent\nsharedSecret| string| The shared secret the test webhook will send. Optional. Defaults to an empty string.\npayloadTemplateId| string| The ID of the payload template of the test webhook. Defaults to the HTTP server's template ID if one exists for the given URL, or Generic template ID otherwise\nalertTypeId| string| The type of alert which the test webhook will send. Optional. Defaults to power_supply_down.\n"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"url\": \"https://www.example.com/path\"\n}"
-										},
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"webhookTests"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"id\": \"1234\",\n \"url\": \"https://www.example.com/path\",\n \"status\": \"enqueued\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Return the status of a webhook test for a network",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests/:webhookTestId",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"networks",
-										":networkId",
-										"webhooks",
-										"webhookTests",
-										":webhookTestId"
-									],
-									"variable": [
-										{
-											"key": "networkId",
-											"value": "{{networkId}}",
-											"description": "(Required) "
-										},
-										{
-											"key": "webhookTestId",
-											"value": "{{webhookTestId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Return the status of a webhook test for a network"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests/:webhookTestId",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"networks",
-												":networkId",
-												"webhooks",
-												"webhookTests",
-												":webhookTestId"
-											],
-											"variable": [
-												{
-													"key": "networkId"
-												},
-												{
-													"key": "webhookTestId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n \"id\": \"1234\",\n \"url\": \"https://www.example.com/path\",\n \"status\": \"delivered\"\n}"
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "alertTypes",
-					"item": [
-						{
-							"name": "Return a list of alert types to be used with managing webhook alerts",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/alertTypes",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"organizations",
-										":organizationId",
-										"webhooks",
-										"alertTypes"
-									],
-									"query": [
-										{
-											"key": "productType",
-											"value": "{{productType}}",
-											"description": "Filter sample alerts to a specific product type",
-											"disabled": true
-										}
-									],
-									"variable": [
-										{
-											"key": "organizationId",
-											"value": "{{organizationId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Return a list of alert types to be used with managing webhook alerts"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/alertTypes?productType=<string>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"organizations",
-												":organizationId",
-												"webhooks",
-												"alertTypes"
-											],
-											"query": [
-												{
-													"key": "productType",
-													"value": "<string>"
-												}
-											],
-											"variable": [
-												{
-													"key": "organizationId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[\n {\n  \"alertTypeId\": \"stopped_reporting\",\n  \"alertType\": \"APs went down\",\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2020-07-11T00:03:12.331789Z\",\n  \"alertId\": \"0000000000000000\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {},\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My AP\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n   \"tag1\",\n   \"tag2\"\n  ],\n  \"deviceModel\": \"MR34\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\"\n }\n]"
-								}
-							]
-						}
-					]
-				},
-				{
-					"name": "logs",
-					"item": [
-						{
-							"name": "Return the log of webhook POSTs sent",
-							"protocolProfileBehavior": {
-								"followAuthorizationHeader": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Cisco-Meraki-API-Key",
-										"value": ""
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/logs",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"organizations",
-										":organizationId",
-										"webhooks",
-										"logs"
-									],
-									"query": [
-										{
-											"key": "t0",
-											"value": "{{t0}}",
-											"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
-											"disabled": true
-										},
-										{
-											"key": "t1",
-											"value": "{{t1}}",
-											"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
-											"disabled": true
-										},
-										{
-											"key": "timespan",
-											"value": "{{timespan}}",
-											"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.",
-											"disabled": true
-										},
-										{
-											"key": "perPage",
-											"value": "{{perPage}}",
-											"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.",
-											"disabled": true
-										},
-										{
-											"key": "startingAfter",
-											"value": "{{startingAfter}}",
-											"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-											"disabled": true
-										},
-										{
-											"key": "endingBefore",
-											"value": "{{endingBefore}}",
-											"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
-											"disabled": true
-										},
-										{
-											"key": "url",
-											"value": "{{url}}",
-											"description": "The URL the webhook was sent to",
-											"disabled": true
-										}
-									],
-									"variable": [
-										{
-											"key": "organizationId",
-											"value": "{{organizationId}}",
-											"description": "(Required) "
-										}
-									]
-								},
-								"description": "Return the log of webhook POSTs sent"
-							},
-							"response": [
-								{
-									"name": "Successful operation",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/logs?t0=<string>&t1=<string>&timespan=<float>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&url=<string>",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"organizations",
-												":organizationId",
-												"webhooks",
-												"logs"
-											],
-											"query": [
-												{
-													"key": "t0",
-													"value": "<string>"
-												},
-												{
-													"key": "t1",
-													"value": "<string>"
-												},
-												{
-													"key": "timespan",
-													"value": "<float>"
-												},
-												{
-													"key": "perPage",
-													"value": "<integer>"
-												},
-												{
-													"key": "startingAfter",
-													"value": "<string>"
-												},
-												{
-													"key": "endingBefore",
-													"value": "<string>"
-												},
-												{
-													"key": "url",
-													"value": "<string>"
-												}
-											],
-											"variable": [
-												{
-													"key": "organizationId"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Link",
-											"value": "<string>",
-											"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "[\n {\n  \"organizationId\": \"33619\",\n  \"networkId\": \"L_22742\",\n  \"alertType\": \"Settings changed\",\n  \"url\": \"https://www.example.com/path\",\n  \"sentAt\": \"2019-01-01T13:37:28.123456Z\",\n  \"loggedAt\": \"2019-01-01T13:37:28.423456Z\",\n  \"responseCode\": 200,\n  \"responseDuration\": 244\n }\n]"
-								}
-							]
-						}
-					]
-				}
-			]
-		},
 		{
 			"name": "Alerts",
 			"item": [
@@ -1920,6 +659,1262 @@
 									"body": ""
 								}
 							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Http Servers",
+			"item": [
+				{
+					"name": "List The HTTP Servers For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"httpServers"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "List the HTTP servers for a network"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"httpServers"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"1284392014819\",\n  \"name\": \"What's in a name, anyway?\",\n  \"url\": \"https://example.com/path\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add An HTTP Server To A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"payloadTemplate\": {\n        \"payloadTemplateId\": \"<string>\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"httpServers"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Add an HTTP server to a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| A name for easy reference to the HTTP server\nurl| string| The URL of the HTTP server\nsharedSecret| string| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\npayloadTemplate| object| The payload template to use when posting data to the HTTP server.\n"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com\",\n    \"sharedSecret\": \"shhh\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"httpServers"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"1284392014819\",\n \"name\": \"What's in a name, anyway?\",\n \"url\": \"https://example.com/path\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Return An HTTP Server For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"httpServers",
+								":httpServerId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "httpServerId",
+									"value": "{{httpServerId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Return an HTTP server for a network"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"httpServers",
+										":httpServerId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "httpServerId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"1284392014819\",\n \"name\": \"What's in a name, anyway?\",\n \"url\": \"https://example.com/path\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update An HTTP Server",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"<string>\",\n    \"payloadTemplate\": {\n        \"payloadTemplateId\": \"<string>\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"httpServers",
+								":httpServerId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "httpServerId",
+									"value": "{{httpServerId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Update an HTTP server\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| A name for easy reference to the HTTP server\nurl| string| The URL of the HTTP server\nsharedSecret| string| A shared secret that will be included in POSTs sent to the HTTP server. This secret can be used to verify that the request was sent by Meraki.\npayloadTemplate| object| The payload template to use when posting data to the HTTP server.\n"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"What's in a name, anyway?\",\n    \"url\": \"https://example.com\",\n    \"sharedSecret\": \"shhh\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"httpServers",
+										":httpServerId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "httpServerId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"1284392014819\",\n \"name\": \"What's in a name, anyway?\",\n \"url\": \"https://example.com/path\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete An HTTP Server From A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"httpServers",
+								":httpServerId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "httpServerId",
+									"value": "{{httpServerId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Delete an HTTP server from a network"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/httpServers/:httpServerId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"httpServers",
+										":httpServerId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "httpServerId"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payload Templates",
+			"item": [
+				{
+					"name": "List The Webhook Payload Templates For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"payloadTemplates"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "List the webhook payload templates for a network"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"payloadTemplates"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"payloadTemplateId\": \"wpt_343\",\n  \"type\": \"custom\",\n  \"name\": \"Weeb Hooks\",\n  \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n  \"headers\": {\n   \"Content-Type\": \"application/json\",\n   \"Accept\": \"application/some.url\",\n   \"Authorization\": \"Bearer {{sharedSecret}}\"\n  }\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create A Webhook Payload Template For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": \"<string>\",\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"payloadTemplates"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Create a webhook payload template for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the new template\nbody| string| The liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheaders| string| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message. Either `body` or `bodyFile` must be specified.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/webhooks/payloadTemplates` | create\n\n"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"payloadTemplates"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"payloadTemplateId\": \"wpt_343\",\n \"type\": \"custom\",\n \"name\": \"Weeb Hooks\",\n \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n \"headers\": {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/some.url\",\n  \"Authorization\": \"Bearer {{sharedSecret}}\"\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get The Webhook Payload Template For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"payloadTemplates",
+								":payloadTemplateId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "payloadTemplateId",
+									"value": "{{payloadTemplateId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Get the webhook payload template for a network"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"payloadTemplates",
+										":payloadTemplateId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "payloadTemplateId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"payloadTemplateId\": \"wpt_343\",\n \"type\": \"custom\",\n \"name\": \"Weeb Hooks\",\n \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n \"headers\": {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/some.url\",\n  \"Authorization\": \"Bearer {{sharedSecret}}\"\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Destroy A Webhook Payload Template For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"payloadTemplates",
+								":payloadTemplateId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "payloadTemplateId",
+									"value": "{{payloadTemplateId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Destroy a webhook payload template for a network. Does not work for included templates ('wpt_00001', 'wpt_00002' or 'wpt_00003')"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"payloadTemplates",
+										":payloadTemplateId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "payloadTemplateId"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Update A Webhook Payload Template For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<string>\",\n    \"body\": \"<string>\",\n    \"headers\": \"<string>\",\n    \"bodyFile\": \"<byte>\",\n    \"headersFile\": \"<byte>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"payloadTemplates",
+								":payloadTemplateId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "payloadTemplateId",
+									"value": "{{payloadTemplateId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Update a webhook payload template for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the template\nbody| string| The liquid template used for the body of the webhook message.\nheaders| string| The liquid template used with the webhook headers.\nbodyFile| string| A file containing liquid template used for the body of the webhook message.\nheadersFile| string| A file containing the liquid template used with the webhook headers.\n\n#### Supports Action Batches\n\n**Resource**|**Operation**\n:-------------: |:-------------:\n`/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}` | update\n\n"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/payloadTemplates/:payloadTemplateId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"payloadTemplates",
+										":payloadTemplateId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "payloadTemplateId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"payloadTemplateId\": \"wpt_343\",\n \"type\": \"custom\",\n \"name\": \"Weeb Hooks\",\n \"body\": \"{\\\"event_type\\\":\\\"{{alertTypeId}}\\\",\\\"client_payload\\\":{\\\"text\\\":\\\"{{alertData}}\\\"}}\",\n \"headers\": {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/some.url\",\n  \"Authorization\": \"Bearer {{sharedSecret}}\"\n }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Webhook Tests",
+			"item": [
+				{
+					"name": "Send A Test Webhook For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"<string>\",\n    \"sharedSecret\": \"\",\n    \"payloadTemplateId\": \"<string>\",\n    \"alertTypeId\": \"power_supply_down\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"webhookTests"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Send a test webhook for a network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nurl| string| The URL where the test webhook will be sent\nsharedSecret| string| The shared secret the test webhook will send. Optional. Defaults to an empty string.\npayloadTemplateId| string| The ID of the payload template of the test webhook. Defaults to the HTTP server's template ID if one exists for the given URL, or Generic template ID otherwise\nalertTypeId| string| The type of alert which the test webhook will send. Optional. Defaults to power_supply_down.\n"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"https://www.example.com/path\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"webhookTests"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"1234\",\n \"url\": \"https://www.example.com/path\",\n \"status\": \"enqueued\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Return The Status Of A Webhook Test For A Network",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests/:webhookTestId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"networks",
+								":networkId",
+								"webhooks",
+								"webhookTests",
+								":webhookTestId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}",
+									"description": "(Required) "
+								},
+								{
+									"key": "webhookTestId",
+									"value": "{{webhookTestId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Return the status of a webhook test for a network"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/networks/:networkId/webhooks/webhookTests/:webhookTestId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"networks",
+										":networkId",
+										"webhooks",
+										"webhookTests",
+										":webhookTestId"
+									],
+									"variable": [
+										{
+											"key": "networkId"
+										},
+										{
+											"key": "webhookTestId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"id\": \"1234\",\n \"url\": \"https://www.example.com/path\",\n \"status\": \"delivered\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Alert Types",
+			"item": [
+				{
+					"name": "Return a list of alert types to be used with managing webhook alerts",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/alertTypes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"organizations",
+								":organizationId",
+								"webhooks",
+								"alertTypes"
+							],
+							"query": [
+								{
+									"key": "productType",
+									"value": "{{productType}}",
+									"description": "Filter sample alerts to a specific product type",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "organizationId",
+									"value": "{{organizationId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Return a list of alert types to be used with managing webhook alerts"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/alertTypes?productType=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"organizations",
+										":organizationId",
+										"webhooks",
+										"alertTypes"
+									],
+									"query": [
+										{
+											"key": "productType",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "organizationId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"alertTypeId\": \"stopped_reporting\",\n  \"alertType\": \"APs went down\",\n  \"version\": \"0.1\",\n  \"sharedSecret\": \"secret\",\n  \"sentAt\": \"2020-07-11T00:03:12.331789Z\",\n  \"alertId\": \"0000000000000000\",\n  \"alertLevel\": \"warning\",\n  \"occurredAt\": \"2018-02-11T00:00:00.123450Z\",\n  \"alertData\": {},\n  \"organizationId\": \"2930418\",\n  \"organizationName\": \"My organization\",\n  \"organizationUrl\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\",\n  \"deviceSerial\": \"Q234-ABCD-5678\",\n  \"deviceMac\": \"00:11:22:33:44:55\",\n  \"deviceName\": \"My AP\",\n  \"deviceUrl\": \"https://n1.meraki.com//n//manage/nodes/new_list/000000000000\",\n  \"deviceTags\": [\n   \"tag1\",\n   \"tag2\"\n  ],\n  \"deviceModel\": \"MR34\",\n  \"networkId\": \"N_24329156\",\n  \"networkName\": \"Main Office\",\n  \"networkUrl\": \"https://n1.meraki.com//n//manage/nodes/list\"\n }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Logs",
+			"item": [
+				{
+					"name": "Return the log of webhook POSTs sent",
+					"protocolProfileBehavior": {
+						"followAuthorizationHeader": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Cisco-Meraki-API-Key",
+								"value": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/logs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"organizations",
+								":organizationId",
+								"webhooks",
+								"logs"
+							],
+							"query": [
+								{
+									"key": "t0",
+									"value": "{{t0}}",
+									"description": "The beginning of the timespan for the data. The maximum lookback period is 90 days from today.",
+									"disabled": true
+								},
+								{
+									"key": "t1",
+									"value": "{{t1}}",
+									"description": "The end of the timespan for the data. t1 can be a maximum of 31 days after t0.",
+									"disabled": true
+								},
+								{
+									"key": "timespan",
+									"value": "{{timespan}}",
+									"description": "The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day.",
+									"disabled": true
+								},
+								{
+									"key": "perPage",
+									"value": "{{perPage}}",
+									"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50.",
+									"disabled": true
+								},
+								{
+									"key": "startingAfter",
+									"value": "{{startingAfter}}",
+									"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+									"disabled": true
+								},
+								{
+									"key": "endingBefore",
+									"value": "{{endingBefore}}",
+									"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+									"disabled": true
+								},
+								{
+									"key": "url",
+									"value": "https://api.postman.com",
+									"description": "The URL the webhook was sent to",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "organizationId",
+									"value": "{{organizationId}}",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Return the log of webhook POSTs sent"
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/organizations/:organizationId/webhooks/logs?t0=<string>&t1=<string>&timespan=<float>&perPage=<integer>&startingAfter=<string>&endingBefore=<string>&url=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"organizations",
+										":organizationId",
+										"webhooks",
+										"logs"
+									],
+									"query": [
+										{
+											"key": "t0",
+											"value": "<string>"
+										},
+										{
+											"key": "t1",
+											"value": "<string>"
+										},
+										{
+											"key": "timespan",
+											"value": "<float>"
+										},
+										{
+											"key": "perPage",
+											"value": "<integer>"
+										},
+										{
+											"key": "startingAfter",
+											"value": "<string>"
+										},
+										{
+											"key": "endingBefore",
+											"value": "<string>"
+										},
+										{
+											"key": "url",
+											"value": "<string>"
+										}
+									],
+									"variable": [
+										{
+											"key": "organizationId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Link",
+									"value": "<string>",
+									"description": "A comma-separated list of first, last, prev, and next relative links used for subsequent paginated requests."
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"organizationId\": \"33619\",\n  \"networkId\": \"L_22742\",\n  \"alertType\": \"Settings changed\",\n  \"url\": \"https://www.example.com/path\",\n  \"sentAt\": \"2019-01-01T13:37:28.123456Z\",\n  \"loggedAt\": \"2019-01-01T13:37:28.423456Z\",\n  \"responseCode\": 200,\n  \"responseDuration\": 244\n }\n]"
 						}
 					]
 				}
