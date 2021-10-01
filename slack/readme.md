@@ -10,6 +10,8 @@ Send a message to a Slack channel
 
 - [body.liquid](body.liquid)
 
+- HTTP Server URL: `https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`
+
 ```body.liquid
 {% capture markdown %}
 Alert ID: {{alertId}}

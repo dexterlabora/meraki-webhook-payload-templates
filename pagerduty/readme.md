@@ -12,6 +12,7 @@ Create an incident in PagerDuty.
 ### Template 
 
 - [body.liquid](body.liquid)
+- HTTP Server URL: `https://events.pagerduty.com/v2/enqueue`
 
 ```body.liquid
 {

@@ -12,6 +12,9 @@ Log an event in DataDog.
 
 - [body.liquid](body.liquid)
 - [headers.liquid](headers.liquid)
+- HTTP Server URL: 
+    - https://api.datadoghq.eu/api/v1/events
+    - https://api.datadoghq.com/api/v1/events
 
 ```body.liquid
 {

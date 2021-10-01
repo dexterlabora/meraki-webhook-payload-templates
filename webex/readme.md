@@ -13,6 +13,7 @@ Send a message to a Webex room.
 ### Template 
 
 - [body.liquid](body.liquid)
+- HTTP Server URL: `https://webexapis.com/v1/webhooks/incoming/<YOUR DYNAMIC URL>`
 
 
 ```body.liquid

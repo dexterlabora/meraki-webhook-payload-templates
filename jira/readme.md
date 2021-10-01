@@ -28,6 +28,8 @@ Then set your httpServer's `sharedSecret` property to
 
 - [headers.liquid](headers.liquid)
 - [body.liquid](body.liquid)
+- HTTP Server URL: `https://your-domain.atlassian.net/rest/api/2/issue/createmeta`
+
 
 ```headers.liquid
 {

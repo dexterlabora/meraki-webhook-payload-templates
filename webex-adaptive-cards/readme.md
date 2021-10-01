@@ -20,8 +20,7 @@ Webex API Resources
 ### Templates
 - [body.liquid](body.liquid)
 - [headers.liquid](headers.liquid)
-
-HTTP Server URL: `https://webexapis.com/v1/messages`
+- HTTP Server URL: `https://webexapis.com/v1/messages`
 
 ```body.liquid
 {% capture markdown %}
