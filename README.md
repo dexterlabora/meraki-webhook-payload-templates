@@ -82,8 +82,120 @@ prevStatus: 100 Gbps
 portDesc: Corp Access
 ```
 
+# REST API 
 
+Using the Dashboard API, the templates can be uploaded, managed, tested and applied. 
 
+## Payload Templates 
+
+<table>
+  <tr>
+   <td>get
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/payloadTemplates</strong>
+   </td>
+   <td>getNetworkWebhooksPayloadTemplates
+   </td>
+  </tr>
+  <tr>
+   <td>post
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/payloadTemplates</strong>
+   </td>
+   <td>createNetworkWebhooksPayloadTemplate
+   </td>
+  </tr>
+  <tr>
+   <td>get
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}</strong>
+   </td>
+   <td>getNetworkWebhooksPayloadTemplate
+   </td>
+  </tr>
+  <tr>
+   <td>delete
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}</strong>
+   </td>
+   <td>deleteNetworkWebhooksPayloadTemplate
+   </td>
+  </tr>
+  <tr>
+   <td>put
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/payloadTemplates/{payloadTemplateId}</strong>
+   </td>
+   <td>updateNetworkWebhooksPayloadTemplate
+   </td>
+  </tr>
+</table>
+
+## Webhook Tests 
+
+<table>
+  <tr>
+   <td>post
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/webhookTests</strong>
+   </td>
+   <td>createNetworkWebhooksWebhookTest
+   </td>
+  </tr>
+  <tr>
+   <td>get
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/webhookTests/{webhookTestId}</strong>
+   </td>
+   <td>getNetworkWebhooksWebhookTest
+   </td>
+  </tr>
+</table>
+
+## Webhook HTTP Servers 
+
+<table>
+  <tr>
+   <td>get
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/httpServers</strong>
+   </td>
+   <td>getNetworkWebhooksHttpServers
+   </td>
+  </tr>
+  <tr>
+   <td>post
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/httpServers</strong>
+   </td>
+   <td>createNetworkWebhooksHttpServer
+   </td>
+  </tr>
+  <tr>
+   <td>get
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/httpServers/{httpServerId}</strong>
+   </td>
+   <td>getNetworkWebhooksHttpServer
+   </td>
+  </tr>
+  <tr>
+   <td>put
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/httpServers/{httpServerId}</strong>
+   </td>
+   <td>updateNetworkWebhooksHttpServer
+   </td>
+  </tr>
+  <tr>
+   <td>delete
+   </td>
+   <td><strong>/networks/{networkId}/webhooks/httpServers/{httpServerId}</strong>
+   </td>
+   <td>deleteNetworkWebhooksHttpServer
+   </td>
+  </tr>
+</table>
 
 # Utilities 
 
