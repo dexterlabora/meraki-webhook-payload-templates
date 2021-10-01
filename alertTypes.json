@@ -25,7 +25,7 @@
             "alertLevel": "informational",
             "occurredAt": "2018-02-11T00:00:00.123450Z",
             "alertData": {
-                "imageUrl": "https://XXXXXXXXXXXXXXXXXXXXXXXXXXX.jpg",
+                "imageUrl": "https://cataas.com/cat",
                 "timestamp": 1563499479.547,
                 "motionRecapEnabled": true,
                 "motionDetectorAllowsRecap": true,
