@@ -84,7 +84,7 @@ portDesc: Corp Access
 
 # REST API 
 
-Using the Dashboard API, the templates can be uploaded, managed, tested and applied. 
+Using the [Dashboard API](https://developer.cisco.com/meraki/api-v1/), the templates can be uploaded, managed, tested and applied. 
 
 ## Payload Templates 
 
