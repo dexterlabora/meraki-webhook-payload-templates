@@ -7,12 +7,15 @@ Each folder consists of one integration which includes a couple of key files.
 - /integration/
 
     - `readme.md`
+
         Description of the template, links to the related API service and screenshots of results.
 
     - `body.liquid`
+
         The body template file
 
     - `headers.liquid` 
+
         The headers template file
 
 
@@ -200,6 +203,11 @@ Using the [Dashboard API](https://developer.cisco.com/meraki/api-v1/), the templ
 # Utilities 
 
 ## [Template Builder (beta)](https://webhook-builder-vpfmunhy6a-uc.a.run.app/) 
+
+A graphical web app to build and test template files. 
     
 ## [Postman](https://postman.com/)
-    - A postman collection for the related Meraki API operations to manage webhooks is included in this folder.
+
+- `Webhooks Management.postman_collection.json`
+
+    A postman collection for the related Meraki API operations to manage webhooks is included in this folder.
